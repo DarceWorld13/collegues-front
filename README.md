@@ -26,3 +26,10 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
 "# collegues-front" 
+
+Mettre à jour le fichier README.md avec :
+
+    le code de l'icône build copié
+    l'adresse du site en ligne.
+
+https://travis-ci.org/DarceWorld13/collegues-front.svg?branch=master  et https://darceworld13.github.io/collegues-front/
