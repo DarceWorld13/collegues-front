@@ -1,15 +1,24 @@
-<div> 
-    <img [src]="" alt="photo">
-    <div>
-    <p>Matricule : {{col.matricule}}<p>
-    <p>Nom: {{col.nom}}</p>
-    <p>Prenom: {{col.prenoms}}</p>
-    <p>email: {{col.email}}</p><br/>
-    <p>date de naissance : {{col.dateDenaissance}}</p><br/>
-    <p>photo url: {{col.photoUrl}}</p><br/>
-    <button (click)="modifierCollegue()">modifier</button>
 
-    <button (click)="creerUnCollegue()">créer</button>
-
+<div class="card mb-3" style="max-width: 540px;">
+    <div class="row no-gutters">
+      <div class="col-md-4">
+        <img src="..." class="card-img" alt="photo">
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <h5 class="card-title">Collegue</h5>
+          <p class="card-text">Matricule : {{col.matricule}}</p>
+          <p class="card-text">Nom: {{col.nom}}</p>
+          <p class="card-text">Prenom: {{col.prenoms}}</p>
+          <p class="card-text">email: {{col.email}}</p>
+          <p class="card-text">date de naissance : {{col.dateDenaissance}}</p>
+          <p class="card-text">photo url: {{col.photoUrl}}</p>
+          <button type="button" class="btn btn-primary btn-sm" (click)="modifierCollegue()">Modifier</button>
+          <button type="button" class="btn btn-secondary btn-sm" (click)="creerUnCollegue()">Créer</button>
+        </div>
+      </div>
     </div>
-    </div>  
+  </div>
+
+
+
