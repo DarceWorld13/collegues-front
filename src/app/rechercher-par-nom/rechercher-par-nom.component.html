@@ -9,7 +9,6 @@
       <input type="text" class="form-control" id="inputPassword2" placeholder="nom">
     </div>
     <button type="button" (click)="afficherMatricule(saisie.value)" (click) = "montrer()" class="btn btn-primary mb-2">rechercher</button>
-    
   </form>
   <ul *ngIf="montrerVar ==true" >
       <li *ngFor="let matri of mat">

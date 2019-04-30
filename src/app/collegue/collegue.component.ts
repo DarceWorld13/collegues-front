@@ -2,7 +2,6 @@ import { Component, OnInit, Input } from '@angular/core';
 import { Collegue } from '../models/Collegue';
 import { mcgregor } from '../mock/collegues.mock';
 
-
 @Component({
   selector: 'app-collegue',
   templateUrl: './collegue.component.html',
@@ -14,7 +13,7 @@ constructor(){
 
 }
 
-@Input() col:Collegue;
+@Input()col:Collegue;
 
 showed=false;
 
