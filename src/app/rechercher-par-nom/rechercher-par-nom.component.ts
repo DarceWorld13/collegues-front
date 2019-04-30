@@ -17,13 +17,18 @@ export class RechercherParNomComponent implements OnInit {
   ngOnInit() {
   }
 
-  afficherMatricule(){
+ /* afficherMatricule(){
 
   return this.mat; 
   }
 
   montrer(){
     this.montrerVar = true;
+  }*/
+
+  affichertout(){
+    this.montrerVar = true;
+    return this.mat; 
   }
 
 
