@@ -1,5 +1,5 @@
 import { Component, OnInit, Input} from '@angular/core';
-import { matricule } from '../mock/matricules.mock';
+import { DataService } from '../services/data.service';
 
 @Component({
   selector: 'app-rechercher-par-nom',
@@ -8,28 +8,16 @@ import { matricule } from '../mock/matricules.mock';
 })
 export class RechercherParNomComponent implements OnInit {
 
-  constructor() { }
-
-  mat = matricule; 
-
-  montrerVar = false;
+  listeMatricules: string[];
+ 
+  constructor( private _srv:DataService) { }
 
   ngOnInit() {
   }
 
- /* afficherMatricule(){
-
-  return this.mat; 
+  findByNom(nomSaisi:string){
+    this.listeMatricules = this._srv.rechercherParNom(nomSaisi); 
   }
-
-  montrer(){
-    this.montrerVar = true;
-  }*/
-
-  affichertout(){
-    this.montrerVar = true;
-    return this.mat; 
-  }
-
+ 
 
 }

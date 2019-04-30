@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { mcgregor } from './mock/collegues.mock';
+import { DataService } from './services/data.service';
 
 
 
@@ -7,6 +7,7 @@ import { mcgregor } from './mock/collegues.mock';
   selector: 'app-root',
   template: `
 
+<h1 style="text-align:center; height:90px; background-color:black; color:green">Administration Collègues</h1>
 <div class="row">
   <div class="col">
   <app-rechercher-par-nom> </app-rechercher-par-nom> </div>
@@ -15,7 +16,16 @@ import { mcgregor } from './mock/collegues.mock';
    
     `
 })export class AppComponent {
-  unObjetCollegueFourni= mcgregor;
+  unObjetCollegueFourni;
+
+  constructor(private dataservice:DataService ) {
+    
+  }
+
+  ngOnInit() {
+    this.unObjetCollegueFourni = this.dataservice.recupererCollegueCourant();
+    // qui s'exécute à l'initialisation du composant
+  }
 
 
 }

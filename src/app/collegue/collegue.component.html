@@ -2,7 +2,7 @@
 <div class="card mb-3" style="max-width: 540px;">
     <div class="row no-gutters">
       <div class="col-md-4">
-        <img src="assets/conor.jpg" class="card-img" alt="photo">
+        <img [src]="col.photoUrl" class="card-img" alt="photo">
       </div>
       <div class="col-md-8">
         <div class="card-body">
@@ -11,8 +11,8 @@
           <p class="card-text">Nom: {{col.nom | uppercase}}</p>
           <p class="card-text">Prenom: {{col.prenoms}}</p>
           <p class="card-text" *ngIf="showed ==false">email: {{col.email}}</p>
-          <p class="card-text">date de naissance : {{col.dateDenaissance | date:'longDate'}}</p>
-          <p class="card-text" *ngIf="showed ==false">photo url: {{col.photoUrl}}</p>
+          <p class="card-text">date de naissance : {{col.dateDenaissance | date:'dd/MM/yyyy'}}</p>
+          <p class="card-text" [hidden]=true>photo url: {{col.photoUrl}}</p>
           <div *ngIf="showed ==true">
             <label for="email">Email</label><input type="text" value={{col.email}}><br>
             <label for="photo">photoUrl</label><input type="text" value={{col.photoUrl}}>

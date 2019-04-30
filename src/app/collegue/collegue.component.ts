@@ -1,6 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Collegue } from '../models/Collegue';
-import { mcgregor } from '../mock/collegues.mock';
 
 @Component({
   selector: 'app-collegue',
@@ -20,10 +19,11 @@ showed=false;
   ngOnInit() {
   }
 
- show(){
-this.showed =true;
- }
-  
+
+  show(){
+    this.showed =true;
+     }
+
 
 }
 
