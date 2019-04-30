@@ -16,16 +16,15 @@ constructor(){
 
 @Input() col:Collegue;
 
+showed=false;
+
   ngOnInit() {
   }
 
-
-  modifierCollegue(){
-    console.log("en cours de modification ! ")
-  }
-  creerUnCollegue(){
-    console.log("un collegue a été crée")
-  }
+ show(){
+this.showed =true;
+ }
+  
 
 }
 

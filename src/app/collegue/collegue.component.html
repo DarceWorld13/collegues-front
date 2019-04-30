@@ -2,23 +2,28 @@
 <div class="card mb-3" style="max-width: 540px;">
     <div class="row no-gutters">
       <div class="col-md-4">
-        <img src="..." class="card-img" alt="photo">
+        <img src="assets/conor.jpg" class="card-img" alt="photo">
       </div>
       <div class="col-md-8">
         <div class="card-body">
           <h5 class="card-title">Collegue</h5>
           <p class="card-text">Matricule : {{col.matricule}}</p>
-          <p class="card-text">Nom: {{col.nom}}</p>
+          <p class="card-text">Nom: {{col.nom | uppercase}}</p>
           <p class="card-text">Prenom: {{col.prenoms}}</p>
-          <p class="card-text">email: {{col.email}}</p>
-          <p class="card-text">date de naissance : {{col.dateDenaissance}}</p>
-          <p class="card-text">photo url: {{col.photoUrl}}</p>
-          <button type="button" class="btn btn-primary btn-sm" (click)="modifierCollegue()">Modifier</button>
-          <button type="button" class="btn btn-secondary btn-sm" (click)="creerUnCollegue()">Créer</button>
+          <p class="card-text" *ngIf="showed ==false">email: {{col.email}}</p>
+          <p class="card-text">date de naissance : {{col.dateDenaissance | date:'longDate'}}</p>
+          <p class="card-text" *ngIf="showed ==false">photo url: {{col.photoUrl}}</p>
+          <div *ngIf="showed ==true">
+            <label for="email">Email</label><input type="text" value={{col.email}}><br>
+            <label for="photo">photoUrl</label><input type="text" value={{col.photoUrl}}>
+          </div>
+          <button type="button" class="btn btn-primary btn-sm" (click)="show()" *ngIf="showed ==false">Modifier</button>
+          <button type="button" class="btn btn-primary btn-sm" *ngIf="showed ==true" >Valider</button>
         </div>
       </div>
     </div>
   </div>
+
 
 
 
