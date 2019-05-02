@@ -1,5 +1,9 @@
 import { Component, OnInit, Input} from '@angular/core';
 import { DataService } from '../services/data.service';
+import { environment } from '../../environments/environment';
+import { Observable } from 'rxjs';
+import { ModelData } from '../model-data';
+import { Collegue } from '../models/Collegue';
 
 @Component({
   selector: 'app-rechercher-par-nom',
@@ -9,6 +13,7 @@ import { DataService } from '../services/data.service';
 export class RechercherParNomComponent implements OnInit {
 
   listeMatricules: string[];
+  colleguesCourant:Collegue; 
  
   constructor( private _srv:DataService) { }
 
@@ -16,8 +21,14 @@ export class RechercherParNomComponent implements OnInit {
   }
 
   findByNom(nomSaisi:string){
-    this.listeMatricules = this._srv.rechercherParNom(nomSaisi); 
+   this._srv.rechercherParNom(nomSaisi).subscribe(tab =>this.listeMatricules=tab); 
   }
  
+clickSurMatricule(matriculeSaisi:string){
+this._srv.recupererCollegueCourant(matriculeSaisi).subscribe(col =>{
+})
+}
+
+
 
 }

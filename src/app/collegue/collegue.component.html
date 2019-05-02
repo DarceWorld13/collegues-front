@@ -11,7 +11,7 @@
           <p class="card-text">Nom: {{col.nom | uppercase}}</p>
           <p class="card-text">Prenom: {{col.prenoms}}</p>
           <p class="card-text" *ngIf="showed ==false">email: {{col.email}}</p>
-          <p class="card-text">date de naissance : {{col.dateDenaissance | date:'dd/MM/yyyy'}}</p>
+          <p class="card-text">date de naissance : {{col.dateDeNaissance | date:'dd/MM/yyyy'}}</p>
           <p class="card-text" [hidden]=true>photo url: {{col.photoUrl}}</p>
           <div *ngIf="showed ==true">
             <label for="email">Email</label><input type="text" value={{col.email}}><br>

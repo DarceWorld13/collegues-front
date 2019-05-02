@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Collegue } from '../models/Collegue';
+import { DataService } from '../services/data.service';
 
 @Component({
   selector: 'app-collegue',
@@ -8,21 +9,27 @@ import { Collegue } from '../models/Collegue';
 })
 export class CollegueComponent implements OnInit {
 
-constructor(){
+constructor(private srv:DataService){
 
 }
 
-@Input()col:Collegue;
+col:Collegue = new Collegue('','','','',undefined,'');
+
+
 
 showed=false;
 
   ngOnInit() {
+
+    this.srv.prendreAbonnement().subscribe((el)=>this.col =el); 
   }
 
 
   show(){
     this.showed =true;
      }
+
+  
 
 
 }
