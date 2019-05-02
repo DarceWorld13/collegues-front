@@ -14,6 +14,7 @@ export class RechercherParNomComponent implements OnInit {
 
   listeMatricules: string[];
   colleguesCourant:Collegue; 
+  message ='';
  
   constructor( private _srv:DataService) { }
 
@@ -26,7 +27,9 @@ export class RechercherParNomComponent implements OnInit {
  
 clickSurMatricule(matriculeSaisi:string){
 this._srv.recupererCollegueCourant(matriculeSaisi).subscribe(col =>{
-})
+}),
+erreur =>{this.message = "impossible de trouver ce collègue"}, 
+()=>{}
 }
 
 
