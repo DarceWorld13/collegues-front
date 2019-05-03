@@ -1,29 +1,62 @@
 
-<div class="card mb-3" style="max-width: 540px;">
-    <div class="row no-gutters">
-      <div class="col-md-4">
-        <img [src]="col.photoUrl" class="card-img" alt="photo">
-      </div>
-      <div class="col-md-8">
-        <div class="card-body">
-          <h5 class="card-title">Collegue</h5>
-          <p class="card-text">Matricule : {{col.matricule}}</p>
-          <p class="card-text">Nom: {{col.nom | uppercase}}</p>
-          <p class="card-text">Prenom: {{col.prenoms}}</p>
-          <p class="card-text" *ngIf="showed ==false">email: {{col.email}}</p>
-          <p class="card-text">date de naissance : {{col.dateDeNaissance | date:'dd/MM/yyyy'}}</p>
-          <p class="card-text" [hidden]=true>photo url: {{col.photoUrl}}</p>
-          <div *ngIf="showed ==true">
-            <label for="email">Email</label><input type="text" value={{col.email}}><br>
-            <label for="photo">photoUrl</label><input type="text" value={{col.photoUrl}}>
-          </div>
-          <button type="button" class="btn btn-primary btn-sm" (click)="show()" *ngIf="showed ==false">Modifier</button>
-          <button type="button" class="btn btn-primary btn-sm" *ngIf="showed ==true" >Valider</button>
+<div (ngSubmit)="submit()" class="card mb-3" style="max-width: 540px;">
+  <div class="row no-gutters">
+    <div class="col-md-4">
+      <img [src]="col.photoUrl" *ngIf="hidden ==true" class="card-img" alt="photo">
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title">Collegue</h5>
+        <p class="card-text" *ngIf="hidden ==true">Matricule : {{col.matricule}}</p>
+        <p class="card-text" *ngIf="hidden==true">Nom: {{col.nom | uppercase}}</p>
+        <p class="card-text" *ngIf="hidden==true">Prenom: {{col.prenoms}}</p>
+        <p class="card-text" *ngIf="hidden==true">email: {{col.email}}</p>
+        <p class="card-text" *ngIf="hidden==true">date de naissance : {{col.dateDeNaissance | date:'dd/MM/yyyy'}}</p>
+        <p class="card-text" [hidden]=true>photo url: {{col.photoUrl}}</p>
+        <div *ngIf="showed==true" >
+          <label for="email">Email</label>
+          <input type="text" name="email"  #email="ngModel" [(ngModel)]="modif.email" required>
+          <br>
+          <p *ngIf="email.dirty && email.invalid" style="color:red"> Désolé ce champ est requis ! </p>
+          <br>
+          <label for="photo">photoUrl</label>
+          <input type="text" #photoUrl="ngModel"  name="photoUrl" [(ngModel)]="modif.photoUrl" required minlength="7">
+          <br>
+          <p *ngIf="photoUrl.dirty && photoUrl.invalid" style="color:red"> Désolé ce champ est requis !</p>
+          <br>
         </div>
+        <div *ngIf="hidden ==false">
+          <label for="nom">nom: </label>
+          <input type="text" name="nom" #nom='ngModel' [(ngModel)]="nouveauCollegue.nom" required ><br>
+          <p *ngIf="nom.dirty && nom.invalid" style="color:red"> Désolé ce champ est requis ! </p>
+          <br>
+          <label for="prenoms">Prenoms: </label>
+          <input type="text" name="prenoms" #prenoms='ngModel' [(ngModel)]="nouveauCollegue.prenoms" required>
+          <p *ngIf="prenoms.dirty && prenoms.invalid" style="color:red"> Désolé ce champ est requis ! </p>
+          <br>
+          <label for="email">Email : </label>
+          <input type="text" name="email" #email='ngModel' [(ngModel)]="nouveauCollegue.email" required> 
+          <br>
+          <p *ngIf="email.dirty && email.invalid" style="color:red"> Désolé ce champ est requis ! </p>
+          <br>
+          <label for="dateDeNaissance">Date de Naissance : </label>
+          <input type="date" name="dateDeNaissance" #dateDeNaissance='ngModel' [(ngModel)]="nouveauCollegue.dateDeNaissance" required><br>
+          <p *ngIf="dateDeNaissance.dirty && dateDeNaissance.invalid" style="color:red"> Désolé ce champ est requis ! </p>
+          <br>
+          <label for="photo">photoUrl</label>
+          <input type="text" name="photoUrl" #photoUrl='ngModel' [(ngModel)]="nouveauCollegue.photoUrl" required>
+          <br>
+          <p *ngIf="photoUrl.dirty && photoUrl.invalid" style="color:red"> Désolé ce champ est requis !</p>
+          <br>
+        </div>
+        <br>
+        <button type="button" class="btn btn-primary btn-sm" (click)="tohide()" *ngIf="hidden==true" style="margin-right:30px">Créer un collegue</button>
+        <button type="button" class="btn btn-primary btn-sm" (click)="show()" *ngIf="hidden ==true">Modifier</button>
+        <button type="button" class="btn btn-primary btn-sm" *ngIf="showed ==true" (click)="valider()">Valider</button>
+        <button type="button" class="btn btn-primary btn-sm" *ngIf="hidden==false" (click)="creer()">Créer</button><br>
+        <ngb-alert [type]="'danger'" (close)="ServerError()" (click)='supprimierMessageErreur()' *ngIf='cacherMessageAlert ==false' >{{'désolé le serveur est innassible' }}</ngb-alert>
+
       </div>
     </div>
   </div>
-
-
-
-
+</div>

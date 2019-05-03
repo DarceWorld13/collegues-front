@@ -6,7 +6,7 @@ export class Collegue{
     public prenoms:string,
     public email:string, 
     public dateDeNaissance:Date,
-    public photoUrl:string,   ) {
+    public photoUrl:string   ) {
 
     }
     

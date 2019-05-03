@@ -7,6 +7,8 @@ import { Observable, Subject } from 'rxjs';
 import { ModelData } from '../model-data';
 import { environment } from '../../environments/environment';
 import { Collegue } from '../models/Collegue';
+import { ModifCollegue } from '../models/modifCollegue';
+import { SauvegarderCollegue } from '../models/SauvegarderCollegue';
 
 @Injectable({
   providedIn: 'root'
@@ -34,19 +36,22 @@ export class DataService {
   }
   
 
-  //l'idée est de permettre au composant qui va s'abonner à publier de pouvoir publier un collègue
-  /*publier(collegues:Collegue){
-    this.subject.next(collegues); 
+
+  modifierEmail(matricule:string, email:string){
+    return this._http.patch<Collegue>(`${this.url_back}${matricule}`,{"email":email}); 
   }
-*/
+
+  modifierPhotoUrl(matricule:string,photoUrl:string){
+    return this._http.patch<Collegue>(`${this.url_back}${matricule}`,{"photoUrl":photoUrl}); 
+  }
+
   //celui qui s'abonne de récupérer un collègue pour pouvoir l'afficher chez lui
   prendreAbonnement():Observable<Collegue>{
     return this.subject.asObservable(); 
   }
 
-
-
-
- 
+  sauvegarderUnCollegue(monsieur:SauvegarderCollegue){
+    return this._http.post<Collegue>(`${this.url_back}`,monsieur);
+  }
 
 }
