@@ -3,7 +3,7 @@
   <div class="row no-gutters">
     <div class="col-md-4">
       <img [src]="col.photoUrl" *ngIf="hidden ==true" class="card-img" alt="photo">
-    </div>
+    </div> 
     <div class="col-md-8">
       <div class="card-body">
         <h5 class="card-title">Collegue</h5>
@@ -35,9 +35,10 @@
           <p *ngIf="prenoms.dirty && prenoms.invalid" style="color:red"> Désolé ce champ est requis ! </p>
           <br>
           <label for="email">Email : </label>
-          <input type="text" name="email" #email='ngModel' [(ngModel)]="nouveauCollegue.email" required> 
+          <input type="text" name="email" #email='ngModel' [(ngModel)]="nouveauCollegue.email" appEmailValidator  (keypress)="verifEmail" [ngModelOptions]="{updateOn: 'blur'}" required> 
           <br>
           <p *ngIf="email.dirty && email.invalid" style="color:red"> Désolé ce champ est requis ! </p>
+           <p *ngIf="emailExist ==true" style="color:red" > cet email existe déjà </p> 
           <br>
           <label for="dateDeNaissance">Date de Naissance : </label>
           <input type="date" name="dateDeNaissance" #dateDeNaissance='ngModel' [(ngModel)]="nouveauCollegue.dateDeNaissance" required><br>

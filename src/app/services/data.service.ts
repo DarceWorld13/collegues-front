@@ -9,6 +9,7 @@ import { environment } from '../../environments/environment';
 import { Collegue } from '../models/Collegue';
 import { ModifCollegue } from '../models/modifCollegue';
 import { SauvegarderCollegue } from '../models/SauvegarderCollegue';
+import { infoCollegue } from '../models/infoCollegue';
 
 @Injectable({
   providedIn: 'root'
@@ -22,6 +23,9 @@ export class DataService {
 
   lenom ='?nom='; 
   url_back =environment.urlPosts; 
+  emailverif="verif?email="; 
+
+  photos = "photos"; 
 
   constructor(private _http:HttpClient) { }
 
@@ -53,5 +57,16 @@ export class DataService {
   sauvegarderUnCollegue(monsieur:SauvegarderCollegue){
     return this._http.post<Collegue>(`${this.url_back}`,monsieur);
   }
+
+emailExists(email:string){
+  return this._http.get<Collegue>(`${this.url_back}${this.emailverif}${email}`)
+
+}
+
+afficherInfo() : Observable<infoCollegue[]>{
+  return this._http.get<infoCollegue[]>(`${this.url_back}${this.photos}`)
+}
+
+
 
 }

@@ -12,63 +12,73 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 })
 export class CollegueComponent implements OnInit {
 
-constructor(private srv:DataService){
+  constructor(private srv: DataService) {
 
-}
+  }
 
-col:Collegue = new Collegue('','','','',undefined,'');
+  col: Collegue = new Collegue('', '', '', '', undefined, '');
 
-modif = new ModifCollegue('',''); 
+  modif = new ModifCollegue('', '');
+ 
 
+  nouveauCollegue = new SauvegarderCollegue('', '', '', undefined, '');
+  message = '';
+  cacherMessageAlert = true;
 
-nouveauCollegue = new SauvegarderCollegue( '','','',undefined,''); 
-message=''; 
-cacherMessageAlert=true;
+  showed = false;
+  hidden = true;
 
-showed=false;
-hidden =true; 
+  email = '';
 
   ngOnInit() {
 
-    this.srv.prendreAbonnement().subscribe((el)=>this.col =el); 
+    this.srv.prendreAbonnement().subscribe((el) => this.col = el);
   }
 
-  tohide(){
-  this.hidden = false; 
-}
-  show(){
-    this.showed =true;
-     }
+  tohide() {
+    this.hidden = false;
+  }
+  show() {
+    this.showed = true;
+  }
 
-  valider(){
-    this.srv.modifierEmail(this.col.matricule,this.modif.email).subscribe(col=>{}, err=>this.cacherMessageAlert=false, () =>{
-      console.log("c'est terminé")
+  valider() {
+    this.srv.modifierEmail(this.col.matricule, this.modif.email).subscribe(col => { }, err => this.cacherMessageAlert = false, () => {
+      alert('Votre modification a été prise en compte ! ')
 
     }
     );
-   this.srv.modifierPhotoUrl(this.col.matricule,this.modif.photoUrl).subscribe(col=>{},err=>this.cacherMessageAlert=false, () =>{
-    console.log("c'est terminé")
+    this.srv.modifierPhotoUrl(this.col.matricule, this.modif.photoUrl).subscribe(col => { }, err => this.cacherMessageAlert = false, () => {
+      alert('Votre modification a été prise en compte ! ')
 
-  }); 
+
+    });
 
   }
 
-  creer(){
-    this.srv.sauvegarderUnCollegue(this.nouveauCollegue).subscribe(col=>{},err=>this.cacherMessageAlert=false, () =>{
-      console.log("c'est terminé")
-  
+  creer() {
+    this.srv.sauvegarderUnCollegue(this.nouveauCollegue).subscribe(col => { }, err => this.cacherMessageAlert = false, () => {
+      alert('Le collegue a bien été sauvegarder !')
+
+
     });
   }
 
 
-  supprimierMessageErreur(){
-    this.cacherMessageAlert = true; 
+  supprimierMessageErreur() {
+    this.cacherMessageAlert = true;
   }
 
-  ServerError(){
-    this.message ='serveur inaccessible'
+  ServerError() {
+    this.message = 'serveur inaccessible'
   }
-  
+
+  verifEmail() {
+    this.srv.emailExists(this.email);  
+
+  }
+
+
 
 
 }
