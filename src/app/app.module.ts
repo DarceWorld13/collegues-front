@@ -14,15 +14,17 @@ import { GallerieComponent } from './gallerie/gallerie.component';
 import { AproposComponent } from './apropos/apropos.component';
 import { AccueilComponent } from './accueil/accueil.component';
 import { PasTrouveComponentComponent } from './pas-trouve-component/pas-trouve-component.component';
+import { InfoCollegueComponent } from './info-collegue/info-collegue.component';
 
 const appRoutes:Routes=[
   {path:"accueil", component :AccueilComponent}, 
   {path:"gallerie", component:GallerieComponent}, 
-  {path:"apropos", component: AproposComponent}, 
+  {path:"apropos", component: AproposComponent},
+  { path: 'gallerie/:matricule', component: InfoCollegueComponent }, 
   {path:"", pathMatch:"full", redirectTo:"accueil"},
-  {path:"**", component: PasTrouveComponentComponent}
+  {path:"**", component: PasTrouveComponentComponent},
   
-  , 
+  
 ]
 
 @NgModule({
@@ -35,7 +37,8 @@ const appRoutes:Routes=[
     GallerieComponent,
     AproposComponent,
     AccueilComponent,
-    PasTrouveComponentComponent
+    PasTrouveComponentComponent,
+    InfoCollegueComponent
 
   ],
   imports: [

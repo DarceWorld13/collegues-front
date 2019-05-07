@@ -1,5 +1,7 @@
 <ul>
-<li *ngFor="let photos of listeObjet" >
- <a routerlink=""><img src="{{photos.photoUrl}}" alt="photos"></a> 
+<li *ngFor="let col of listeObjet" >
+ <a routerLink="/gallerie/{{col.matricule}}"><img src="{{col.photoUrl}}" alt="photos"></a>
      </li> 
 </ul>
+
+

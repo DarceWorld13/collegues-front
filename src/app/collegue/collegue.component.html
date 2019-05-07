@@ -7,7 +7,7 @@
     <div class="col-md-8">
       <div class="card-body">
         <h5 class="card-title">Collegue</h5>
-        <p class="card-text" *ngIf="hidden ==true">Matricule : {{col.matricule}}</p>
+        <p class="card-text" *ngIf="hidden ==true">Matricule : {{col.matricule}}</p> 
         <p class="card-text" *ngIf="hidden==true">Nom: {{col.nom | uppercase}}</p>
         <p class="card-text" *ngIf="hidden==true">Prenom: {{col.prenoms}}</p>
         <p class="card-text" *ngIf="hidden==true">email: {{col.email}}</p>
@@ -35,10 +35,9 @@
           <p *ngIf="prenoms.dirty && prenoms.invalid" style="color:red"> Désolé ce champ est requis ! </p>
           <br>
           <label for="email">Email : </label>
-          <input type="text" name="email" #email='ngModel' [(ngModel)]="nouveauCollegue.email" appEmailValidator  (keypress)="verifEmail" [ngModelOptions]="{updateOn: 'blur'}" required> 
+          <input type="text" name="email" #email='ngModel' [(ngModel)]="nouveauCollegue.email" required> 
           <br>
           <p *ngIf="email.dirty && email.invalid" style="color:red"> Désolé ce champ est requis ! </p>
-           <p *ngIf="emailExist ==true" style="color:red" > cet email existe déjà </p> 
           <br>
           <label for="dateDeNaissance">Date de Naissance : </label>
           <input type="date" name="dateDeNaissance" #dateDeNaissance='ngModel' [(ngModel)]="nouveauCollegue.dateDeNaissance" required><br>

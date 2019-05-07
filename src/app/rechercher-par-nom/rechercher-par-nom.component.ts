@@ -27,7 +27,7 @@ export class RechercherParNomComponent implements OnInit {
  
 clickSurMatricule(matriculeSaisi:string){
 this._srv.recupererCollegueCourant(matriculeSaisi).subscribe(col =>{
-})
+}) 
 }
 
 
