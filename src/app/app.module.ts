@@ -8,7 +8,6 @@ import { RechercherParNomComponent } from './rechercher-par-nom/rechercher-par-n
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { EmailValidatorDirective } from './validators/email-validator.directive';
-import { MenuComponentComponent } from './menu-component/menu-component.component';
 import { RouterModule, Routes } from '@angular/router';
 import { GallerieComponent } from './gallerie/gallerie.component';
 import { AproposComponent } from './apropos/apropos.component';
@@ -33,7 +32,6 @@ const appRoutes:Routes=[
     CollegueComponent,
     RechercherParNomComponent,
     EmailValidatorDirective,
-    MenuComponentComponent,
     GallerieComponent,
     AproposComponent,
     AccueilComponent,

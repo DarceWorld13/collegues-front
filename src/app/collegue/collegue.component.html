@@ -1,5 +1,5 @@
 
-<div class="card mb-3" style="max-width: 540px;">
+<div  id = "tout" class="card mb-3" style="max-width: 540px;">
   <div class="row no-gutters">
     <div class="col-md-4">
       <img [src]="col.photoUrl" *ngIf="hidden ==true" class="card-img" alt="photo">
@@ -23,7 +23,7 @@
           <input type="text" #photoUrl="ngModel"  name="photoUrl" [(ngModel)]="modif.photoUrl" required minlength="7">
           <br>
           <p *ngIf="photoUrl.dirty && photoUrl.invalid" style="color:red"> Désolé ce champ est requis !</p>
-          <br>
+          <br> 
         </div>
         <div *ngIf="hidden ==false">
           <label for="nom">nom: </label>

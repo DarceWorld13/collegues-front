@@ -18,10 +18,10 @@ import { DataService } from './services/data.service';
 <router-outlet></router-outlet>
 </main>
 <!-- Footer -->
-<footer class="page-footer font-small teal pt-4">
+<footer class="page-footer font-small teal pt-4 bg-dark">
  
   <!-- Footer Text -->
-  <div class="container-fluid text-center text-md-left">
+  <div class="container-fluid text-center text-md-left text-success">
 
     <!-- Grid row -->
     <div class="row">
@@ -59,7 +59,7 @@ import { DataService } from './services/data.service';
   <!-- Footer Text -->
 
   <!-- Copyright -->
-  <div class="footer-copyright text-center py-3">© 2018 Copyright:
+  <div class="footer-copyright text-center py-3 text-success">© 2018 Copyright:
     <a href="https://mdbootstrap.com/education/bootstrap/"> MDBootstrap.com</a>
   </div>
   <!-- Copyright -->
