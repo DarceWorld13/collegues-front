@@ -7,6 +7,17 @@ export const environment = {
   urlPosts: 'http://localhost:8080/collegues/'
 };
 
+export const environmentAuth = {
+  production: false, 
+  urlPosts: 'http://localhost:8080/auth'
+};
+
+
+export const environmentLogOut = {
+  production: false, 
+  urlPosts: 'http://localhost:8080/logout'
+};
+
 /*
  * For easier debugging in development mode, you can import the following file
  * to ignore zone related error stack frames such as `zone.run`, `zoneDelegate.invokeTask`.

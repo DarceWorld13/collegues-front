@@ -14,7 +14,7 @@ export class InfoCollegueComponent implements OnInit {
   matricule: string;
   col:Collegue;
   saisie = ''; 
-  
+   
   ngOnInit() { 
 
     this.matricule = this.route.snapshot.paramMap.get("matricule"); 

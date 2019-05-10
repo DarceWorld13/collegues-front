@@ -37,7 +37,7 @@
           <label for="email">Email : </label>
           <input type="text" name="email" #email='ngModel' [(ngModel)]="nouveauCollegue.email" required> 
           <br>
-          <p *ngIf="email.dirty && email.invalid" style="color:red"> Désolé ce champ est requis ! </p>
+          <p *ngIf="email.dirty && email.invalid" style="color:red"> Désolé ce champ est requis ! </p> 
           <br>
           <label for="dateDeNaissance">Date de Naissance : </label>
           <input type="date" name="dateDeNaissance" #dateDeNaissance='ngModel' [(ngModel)]="nouveauCollegue.dateDeNaissance" required><br>

@@ -14,16 +14,25 @@ import { AproposComponent } from './apropos/apropos.component';
 import { AccueilComponent } from './accueil/accueil.component';
 import { PasTrouveComponentComponent } from './pas-trouve-component/pas-trouve-component.component';
 import { InfoCollegueComponent } from './info-collegue/info-collegue.component';
+import { ConnexionComponent } from './connexion/connexion.component';
+import { ConnexionGuard } from './connexion-guard';
+
 
 const appRoutes:Routes=[
+  {path:"connect", component: ConnexionComponent},
+  {path:"",
+ canActivate:[ConnexionGuard], 
+  children:[
   {path:"accueil", component :AccueilComponent}, 
   {path:"gallerie", component:GallerieComponent}, 
   {path:"apropos", component: AproposComponent},
+ 
   { path: 'gallerie/:matricule', component: InfoCollegueComponent }, 
   {path:"", pathMatch:"full", redirectTo:"accueil"},
   {path:"**", component: PasTrouveComponentComponent},
-  
-  
+
+]
+  }
 ]
 
 @NgModule({
@@ -36,7 +45,8 @@ const appRoutes:Routes=[
     AproposComponent,
     AccueilComponent,
     PasTrouveComponentComponent,
-    InfoCollegueComponent
+    InfoCollegueComponent,
+    ConnexionComponent
 
   ],
   imports: [
